@@ -1,0 +1,66 @@
+.first-screen {
+    background-image: url("../images/Background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+    min-height: 100vh;
+    width: 100%;
+
+    &__body {
+        text-align: center;
+    }
+
+    &__title {
+        font-size: 60px;
+        font-weight: 700;
+        line-height: 70px;
+        color: #fff;
+        max-width: 720px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 3;
+    }
+
+    &__line {
+        position: absolute;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))
+            drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        top: 31%;
+        right: 20%;
+    }
+
+    &__text {
+    }
+
+    &__search {
+    }
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 132px;
+
+    &__logo {
+    }
+
+    &__cart {
+    }
+}
+
+.menu {
+    &__list {
+        display: flex;
+        gap: 55px;
+    }
+
+    &__item {
+    }
+
+    &__link {
+        color: #c6c0c0;
+        font-size: 18px;
+        font-weight: 500;
+    }
+}
