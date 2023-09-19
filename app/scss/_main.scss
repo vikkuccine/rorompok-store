@@ -1,38 +1,95 @@
 .first-screen {
-    background-image: url("../images/Background.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: bottom center;
     min-height: 100vh;
     width: 100%;
+    background: rgb(4, 4, 2);
+    background: linear-gradient(90deg, rgba(4, 4, 2, 1) 0%, rgba(109, 115, 115, 1) 100%);
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        background-image: url("../images/Background-trim.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: bottom center;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        height: 100%;
+    }
 
     &__body {
         text-align: center;
+        position: relative;
     }
 
     &__title {
-        font-size: 60px;
+        font-size: 50px;
         font-weight: 700;
         line-height: 70px;
         color: #fff;
         max-width: 720px;
         margin: 0 auto;
         position: relative;
+        padding-bottom: 20px;
+    }
+
+    &__title-span {
+        position: relative;
         z-index: 3;
     }
 
     &__line {
         position: absolute;
-        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))
-            drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-        top: 31%;
-        right: 20%;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        top: 38%;
+        right: 6%;
     }
 
     &__text {
+        font-size: 18px;
+        line-height: 32px;
+        padding-bottom: 48px;
+        max-width: 867px;
+        margin: 0 auto;
+        color: #C6C0C0;
+    }
+
+    &__input-box {
+        display: inline-block;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            background-color: #F08C00;
+            width: 48px;
+            height: 48px;
+            top: 8px;
+            right: 8px;
+            border-radius: 50%;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            background-image: url('../images/search.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: bottom center;
+            top: 20px;
+            right: 20px;
+            width: 24px;
+            height: 24px;
+        }
     }
 
     &__search {
+        border-radius: 45px;
+        border: 2px solid rgba(255, 255, 255, 0.40);
+        background: rgba(222, 222, 222, 0.20);
+        padding: 20px 210px 20px 24px;
+        color: #fff;
     }
 }
 
@@ -40,27 +97,38 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 132px;
+    margin-bottom: 84px;
+    margin-top: 35px;
+    position: relative;
 
     &__logo {
+
     }
 
     &__cart {
+
     }
 }
 
 .menu {
+
+
+
     &__list {
         display: flex;
         gap: 55px;
     }
 
-    &__item {
-    }
+    &__item {}
 
     &__link {
         color: #c6c0c0;
         font-size: 18px;
         font-weight: 500;
+        cursor: pointer;
     }
+}
+
+#line-animation {
+    width: 350px;
 }
