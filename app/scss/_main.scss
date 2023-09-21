@@ -101,19 +101,14 @@
     margin-top: 35px;
     position: relative;
 
-    &__logo {
-
-    }
+    &__logo {}
 
     &__cart {
-
+        cursor: pointer;
     }
 }
 
 .menu {
-
-
-
     &__list {
         display: flex;
         gap: 55px;
@@ -131,4 +126,170 @@
 
 #line-animation {
     width: 350px;
+}
+
+
+.info {
+    padding-top: 120px;
+}
+
+.info-list {
+    display: flex;
+    gap: 42px;
+    justify-content: space-between;
+    margin: 0;
+
+    &__item {
+        max-width: 314px;
+        display: flex;
+        gap: 15px;
+
+        &:first-child {
+            margin-left: 60px;
+        }
+    }
+
+    &__icon {
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            background-color: $accent;
+            width: 48px;
+            height: 48px;
+            top: 8px;
+            right: 8px;
+            border-radius: 50%;
+        }
+    }
+
+    &__img {
+        height: 24px;
+        width: 24px;
+        position: absolute;
+        z-index: 5;
+        top: 19px;
+        right: 19px;
+    }
+
+    &__wrap {}
+
+    &__subtitle {
+        padding-bottom: 15px;
+        max-width: 240px;
+    }
+
+    &__text {
+        margin: 0;
+    }
+}
+
+.item-card {
+
+    &__wrap {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__info {
+        max-width: 490px;
+    }
+
+    &__text-box {
+        padding-bottom: 113px;
+    }
+
+    &__title {
+        padding-bottom: 48px;
+    }
+
+    &__subtitle {
+        padding-bottom: 8px;
+    }
+
+    &__text {
+        margin: 0;
+        padding-bottom: 16px;
+    }
+
+    &__price {
+        color: $accent;
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    &__photo {
+        margin-right: -130px;
+    }
+
+    &__img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.micro-card {
+    display: flex;
+    background-color: #FBFBFB;
+    max-width: 356px;
+
+    &__photo {
+        padding: 16px 28px 16px 16px;
+        align-self: center;
+    }
+
+    &__img {}
+
+    &__box {
+        padding: 16px 0;
+    }
+
+    &__subtitle {
+        padding-bottom: 32px;
+    }
+
+    &__text {
+        margin: 0;
+        padding-bottom: 8px;
+    }
+
+    &__dots {
+
+    }
+}
+
+.dots {
+    display: flex;
+    gap: 12px;
+
+    &__item-blue {
+        background-color: #375C6C;
+        @extend %dots-form;
+    }
+
+    &__item-orange {
+        background-color: #F08C00;
+        @extend %dots-form;
+    }
+
+    &__item-green { 
+        background-color: #2C8234;
+        @extend %dots-form;
+    }
+
+    &__item--active {
+        border: 4px solid #565050;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            background-image: url('../images/check.svg');
+            width: 12px;
+            height: 12px;
+            top: 2px;
+            right: 2px;
+        }
+    }
 }

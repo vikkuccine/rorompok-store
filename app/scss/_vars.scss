@@ -1,3 +1,12 @@
 $primary: #686161;
 $titles: #2E2A2A;
 $secondary: #8C8585;
+$accent: #F08C00;
+
+%dots-form {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 4px solid #fff;
+}

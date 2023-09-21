@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/style.min.css">
     <title>Document</title>
@@ -37,55 +37,136 @@
                 </header>
                 <div class="first-screen__body">
                     <h2 class="first-screen__title">
-                        Buat Suasana Rumah
-                        Senyaman Imajinasimu
+                        <span class="first-screen__title-span">
+                            Buat Suasana Rumah
+                            Senyaman Imajinasimu
+                        </span>
+                        <div class="first-screen__line">
+                            <svg id="line-animation" width="403" height="97" viewBox="0 0 403 97" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" style="">
+                                <path
+                                    d="M2 28.5001C73.5 -0.499971 371 -13.4998 397.5 42.0001C424 97.5 105 103.5 33 80.5001"
+                                    stroke="#F08C00" stroke-width="6" class="ltqbwGOS_0"></path>
+                                <style data-made-with="vivus-instant">
+                                    .ltqbwGOS_0 {
+                                        stroke-dasharray: 793 795;
+                                        stroke-dashoffset: 794;
+                                        animation: ltqbwGOS_draw 1000ms linear 0ms forwards;
+                                    }
+
+                                    @keyframes ltqbwGOS_draw {
+                                        100% {
+                                            stroke-dashoffset: 0;
+                                        }
+                                    }
+
+                                    @keyframes ltqbwGOS_fade {
+                                        0% {
+                                            stroke-opacity: 1;
+                                        }
+
+                                        92.98245614035088% {
+                                            stroke-opacity: 1;
+                                        }
+
+                                        100% {
+                                            stroke-opacity: 0;
+                                        }
+                                    }
+                                </style>
+                            </svg>
+                        </div>
                     </h2>
-                    <div class="first-screen__line">
-                        <svg id="line-animation" width="403" height="97" viewBox="0 0 403 97" fill="none"
-                            xmlns="http://www.w3.org/2000/svg" style="">
-                            <path d="M2 28.5001C73.5 -0.499971 371 -13.4998 397.5 42.0001C424 97.5 105 103.5 33 80.5001"
-                                stroke="#F08C00" stroke-width="6" class="ltqbwGOS_0"></path>
-                            <style data-made-with="vivus-instant">
-                                .ltqbwGOS_0 {
-                                    stroke-dasharray: 793 795;
-                                    stroke-dashoffset: 794;
-                                    animation: ltqbwGOS_draw 1000ms linear 0ms forwards;
-                                }
-
-                                @keyframes ltqbwGOS_draw {
-                                    100% {
-                                        stroke-dashoffset: 0;
-                                    }
-                                }
-
-                                @keyframes ltqbwGOS_fade {
-                                    0% {
-                                        stroke-opacity: 1;
-                                    }
-
-                                    92.98245614035088% {
-                                        stroke-opacity: 1;
-                                    }
-
-                                    100% {
-                                        stroke-opacity: 0;
-                                    }
-                                }
-                            </style>
-                        </svg>
-                    </div>
                     <p class="first-screen__text">
                         Hidupkan suasana ruanganmu dengan berbagai produk dan koleksi pilihan
                         furniture tebaik!
                         Temukan furniture idamanmu sekarang
                     </p>
-                    <input type="text" class="first-screen__search" placeholder="cari furniture disini">
+                    <div class="first-screen__input-box">
+                        <input type="text" class="first-screen__search" placeholder="cari furniture disini">
+                    </div>
                 </div>
             </div>
         </div>
-
         <main class="main">
-
+            <section class="info container-padding">
+                <div class="container">
+                    <ul class="info-list">
+                        <li class="info-list__item">
+                            <div class="info-list__icon">
+                                <img class="info-list__img" src="../images/icon.svg" alt="icon">
+                            </div>
+                            <div class="info-list__wrap">
+                                <h4 class="info-list__subtitle subtitle">Pengiriman Cepat
+                                    dan Aman</h4>
+                                <p class="info-list__text">Setiap produk yang kami kirim akan selalu
+                                    datang tepat waktu. Produk anda akan
+                                    kami jaga sampai anda terima.</p>
+                            </div>
+                        </li>
+                        <li class="info-list__item">
+                            <div class="info-list__icon">
+                                <img class="info-list__img" src="../images/icon-1.svg" alt="icon">
+                            </div>
+                            <div class="info-list__wrap">
+                                <h4 class="info-list__subtitle subtitle">Design Kekinian
+                                    Kualitas Terbaik</h4>
+                                <p class="info-list__text">Produk yang tersedia dijamin kualitasnya.
+                                    Dengan design yang mengikuti
+                                    perkembangan interior masa kini.</p>
+                            </div>
+                        </li>
+                        <li class="info-list__item">
+                            <div class="info-list__icon">
+                                <img class="info-list__img" src="../images/icon-2.svg" alt="icon">
+                            </div>
+                            <div class="info-list__wrap">
+                                <h4 class="info-list__subtitle subtitle">Produk Daur Ulang
+                                    dan Ramah Lingkungan</h4>
+                                <p class="info-list__text">Produk yang kami sediakan berasal dari
+                                    produk daur ulang namun tetap
+                                    dengan kualitas terbaik.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="item-card container-padding">
+                <div class="container">
+                    <div class="item-card__wrap">
+                        <div class="item-card__info">
+                            <div class="item-card__text-box">
+                                <h3 class="item-card__title title">Koleksi Furniture
+                                    Untuk Inpirasi Ruanganmu</h3>
+                                <h4 class="item-card__subtitle subtitle">Stocksund Inspiration Fullset</h4>
+                                <p class="item-card__text">Berikut ini adalah sebuah desain ruang tv keluarga yang
+                                    digunakan untuk berkumpul dan bersantai.
+                                    Sofa STOCKSUND menawarkan banyak ruang sehingga setiap anggota keluarga dan tamu
+                                    mendapatkan tempat duduk. Sofa ini sangat nyaman dan dapat bertahan hingga
+                                    bertahun-tahun</p>
+                                <spun class="item-card__price">Rp. 12.780.000</spun>
+                            </div>
+                            <div class="micro-card">
+                                <div class="micro-card__photo">
+                                    <img class="micro-card__img" src="../images/micro-card.jpg" alt="micro-card">
+                                </div>
+                                <div class="micro-card__box">
+                                    <h4 class="micro-card__subtitle subtitle">Stocksund Sofa</h4>
+                                    <p class="micro-card__text">Warna</p>
+                                    <ul class="micro-card__dots dots">
+                                        <li class="dots__item-blue dots__item--active"></li>
+                                        <li class="dots__item-orange"></li>
+                                        <li class="dots__item-green"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-card__photo">
+                            <img class="item-card__img" src="../images/item-card.jpg" alt="furniture">
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
 
         <footer class="footer">

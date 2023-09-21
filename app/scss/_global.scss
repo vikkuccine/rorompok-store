@@ -4,8 +4,8 @@ html {
 
 *,
 *::after,
-*::before{
-  box-sizing: inherit;
+*::before {
+	box-sizing: inherit;
 }
 
 html,
@@ -14,12 +14,12 @@ body {
 }
 
 body {
-    font-family: 'Noto Sans Mono', monospace;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.2;
-    overflow-x: hidden;
-    color: $primary;
+	font-family: 'Noto Sans Mono', monospace;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.2;
+	overflow-x: hidden;
+	color: $primary;
 }
 
 ul[class],
@@ -28,7 +28,7 @@ ol[class] {
 }
 
 ul[class] {
-	list-style: none; 
+	list-style: none;
 }
 
 a {
@@ -36,8 +36,8 @@ a {
 }
 
 .container {
-    max-width: 1220px;
-    margin: 0 auto;
+	max-width: 1220px;
+	margin: 0 auto;
 	padding: 0 15px;
 }
 
@@ -49,10 +49,29 @@ a {
 	// overflow-x: hidden;
 }
 
+.container-padding {
+	padding-top: 60px;
+	padding-bottom: 60px;
+}
+
 .main {
 	flex: 1 0 auto;
 }
 
 .footer {
 	flex: 0 0 auto;
+}
+
+.title {
+	color: $titles;
+	font-size: 20px;
+	font-weight: 700;
+	margin: 0;
+}
+
+.subtitle {
+	color: $titles;
+	font-size: 20px;
+	font-weight: 500;
+	margin: 0;
 }
