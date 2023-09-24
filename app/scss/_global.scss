@@ -64,7 +64,7 @@ a {
 
 .title {
 	color: $titles;
-	font-size: 20px;
+	font-size: 36px;
 	font-weight: 700;
 	margin: 0;
 }
@@ -74,4 +74,90 @@ a {
 	font-size: 20px;
 	font-weight: 500;
 	margin: 0;
+}
+
+.dots {
+	display: flex;
+	gap: 12px;
+
+	&__item {
+
+		height: 24px;
+		width: 24px;
+		border-radius: 50%;
+		cursor: pointer;
+		border: 4px solid #fff;
+
+		&--blue {
+			background-color: #375C6C;
+
+			&::after {
+				background-image: url('../images/check-white.svg');
+			}
+		}
+
+		&--orange {
+			background-color: #F08C00;
+
+			&::after {
+				background-image: url('../images/check-white.svg');
+			}
+		}
+
+		&--green {
+			background-color: #2C8234;
+
+			&::after {
+				background-image: url('../images/check-white.svg');
+			}
+		}
+
+		&--beige {
+			background-color: #EDCFB3;
+
+			&::after {
+				background-image: url('../images/check-dark.svg');
+			}
+		}
+
+		&--terracotta {
+			background-color: #B68044;
+
+			&::after {
+				background-image: url('../images/check-white.svg');
+			}
+		}
+
+		&--light-gray {
+			background-color: #C6C0C0;
+
+			&::after {
+				background-image: url('../images/check-gray.svg');
+			}
+
+		}
+
+		&--gray {
+			background-color: #46434A;
+
+			&::after {
+				background-image: url('../images/check-white.svg');
+			}
+
+		}
+
+		&--active {
+			border: 4px solid #565050;
+			position: relative;
+
+			&::after {
+				content: '';
+				position: absolute;
+				width: 12px;
+				height: 12px;
+				top: 2px;
+				right: 2px;
+			}
+		}
+	}
 }
