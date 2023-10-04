@@ -1,11 +1,20 @@
 
+class Tabs {
+  constructor(selector) {
+    this.selector = selector;
+    this.initTabs();
+  }
 
-    if (document.querySelector('.catalog-list')) {
-        var mixer = mixitup('.catalog-list', {
-          load: {
-            filter: '.meja'
-          }
-        })
-      }
+  initTabs() {
+    if (document.querySelector(this.selector)) {
+      var mixer = mixitup(this.selector, {
+        load: {
+          filter: '.meja'
+        }
+      })
+    }
+  }
+}
 
 
+const tabs = new Tabs('.catalog-list');

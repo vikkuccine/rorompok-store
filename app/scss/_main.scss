@@ -190,6 +190,7 @@
     &__wrap {
         display: flex;
         justify-content: space-between;
+        align-items: flex-end;
     }
 
     &__info {
@@ -221,12 +222,63 @@
 
     &__photo {
         margin-right: -130px;
+        position: relative;
     }
+
+    &__hover {
+        position: absolute;
+        background-image: url('../images/point.svg');
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 78px;
+            height: 4px;
+            top: -19px;
+            right: -3px;
+            background-color: $primary;
+            transform: rotate(66deg);
+            border-top-left-radius: 2px;
+            opacity: 0;
+            transition: opacity .3s;
+        }
+
+        &:hover {
+            
+            &::after {
+                opacity: 1;
+            }
+
+            .item-card__line {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__line {
+        display: inline-block;
+        width: max-content;
+        padding: 0 5px;
+        border-bottom: 4px solid $primary;
+        position: absolute;
+        bottom: 89px;
+        right: 51px;
+        color: $secondary;
+        opacity: 0;
+        transition: opacity .3s;
+    }
+
+
+
 
     &__img {
         max-width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
     }
 }
 
@@ -442,6 +494,50 @@
         margin: 0;
     }
 
+}
+
+.baner {
+    padding-bottom: 0;
+
+    &__wrap {
+        display: flex;
+        gap: 30px;
+    }
+
+
+    &__photo {
+        margin-left: -125px;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            background: linear-gradient(270deg, #FFF 12.81%, rgba(255, 255, 255, 0.00) 89.37%);
+            top: 0;
+            left: 156px;
+            right: 0;
+            bottom: 0;
+        }
+    }
+
+    &__info {
+        align-self: center;
+    }
+
+    &__title {
+        display: block;
+        margin-right: -35px;
+        line-height: 50px;
+        margin-bottom: 8px;
+
+    }
+
+    &__text {
+        margin: 0 0 40px 0;
+        color: $secondary;
+    }
+
+    &__btn {}
 }
 
 .footer {
