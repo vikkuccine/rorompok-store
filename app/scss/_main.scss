@@ -231,7 +231,7 @@
         width: 40px;
         height: 40px;
         cursor: pointer;
-        
+
 
         &::after {
             content: '';
@@ -248,7 +248,7 @@
         }
 
         &:hover {
-            
+
             &::after {
                 opacity: 1;
             }
@@ -562,5 +562,110 @@
         font-weight: 400;
         text-decoration-line: underline;
         color: $secondary;
+    }
+}
+
+
+.popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba($color: #000000, $alpha: 0.8);
+
+    &__body {
+        min-height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px 10px;
+    }
+
+    &__content {
+        background-color: #fff;
+        color: $titles;
+        max-width: 800px;
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 8px;
+    }
+
+    &__close {
+        align-self: flex-end;
+    }
+
+    &__content-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__text-block {
+        display: flex;
+        align-items: center;
+    }
+
+    &__photo {
+        width: 200px;
+        height: 200px;
+    }
+
+    &__img {
+        width: 200px;
+        height: 200px;
+    }
+
+    &__title {
+        margin-left: 5px;
+    }
+
+    &__buttons {
+        display: flex;
+        border: 2px solid $primary;
+        padding: 2px;
+        border-radius: 8px;
+        gap: 10px;
+    }
+
+    &__less-btn {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    &__number {}
+
+    &__more-btn {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    &__price {}
+
+    &__info {
+        display: flex;
+        gap: 15px;
+        
+    }
+
+    &__name {
+        align-self: flex-start;
+        border-radius: 8px;
+        padding: 5px 10px;
+    }
+
+    &__email {
+        align-self: flex-start;
+        border-radius: 8px;
+        padding: 5px 10px;
+    }
+
+    &__submit {
+        align-self: flex-end;
+        margin-top: 15px;
     }
 }
