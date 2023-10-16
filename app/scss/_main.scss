@@ -707,3 +707,22 @@
     justify-content: center;
     align-items: center;
 }
+
+.popup-default {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    &__cart-img {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+    }
+}
+
+.popup-success__message,
+.popup-default__message {
+    color: $titles;
+    max-width: 800px;
+    margin: 40px 100px;
+}

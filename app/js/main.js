@@ -66,7 +66,7 @@ const catalogDots = new DotsToggle('.catalog-list .dots__item', '.catalog-list__
 
 
 
-const hideCartBtn = document.querySelector('.popup__close')
+const hideCartBtn = document.querySelectorAll('.popup__close')
 const popup = document.querySelector('.popup')
 const openCartBtn = document.querySelectorAll('.catalog-list__btn')
 const catalogListItem = document.querySelectorAll('.catalog-list__item')
@@ -74,20 +74,24 @@ const getPopupPrice = document.querySelector('.popup__price')
 const popupItem = document.querySelector('.popup__content-item')
 const body = document.querySelector('body')
 
-
-hideCartBtn.addEventListener('click', () => {
-  toggleCart()
-})
-
-openCartBtn.forEach((btn) => {
-  btn.addEventListener('click', (event) => {
-    toggleCart()
-    addItemToCart(event)
+hideCartBtn.forEach((close) => {
+  close.addEventListener('click', (event) => {
+    const currentPopup = event.target.closest('.popup')
+      toggleCart(currentPopup)
   })
 })
 
-function toggleCart() {
-  popup.classList.toggle('popup__active')
+
+openCartBtn.forEach((btn) => {
+  btn.addEventListener('click', (event) => {
+    toggleCart(popup)
+    addItemToCart(event)
+    addToCartFlag = true;
+  })
+})
+
+function toggleCart(currentPopup) {
+  currentPopup.classList.toggle('popup__active')
   body.classList.toggle('overflow-hidden')
 }
 
@@ -101,7 +105,7 @@ function addItemToCart(event) {
   const newItem = document.createElement('div')
   newItem.innerHTML = getCartItemTemplate(selectImg, selectTitle, selectPrice)
   itemWrapper.append(newItem)
-  const quantityLessBtn = newItem.querySelector('.popup__less-btn') 
+  const quantityLessBtn = newItem.querySelector('.popup__less-btn')
   const quantityMoreBtn = newItem.querySelector('.popup__more-btn')
   quantityLessListener(quantityLessBtn)
   quantityMoreListener(quantityMoreBtn)
@@ -112,7 +116,7 @@ function quantityLessListener(quantityLessBtn) {
   quantityLessBtn.addEventListener('click', (event) => {
     const currentPrice = event.target.closest('.popup__content-item').getAttribute('data-price');
     const getPopupPrice = event.target.closest('.popup__content-item').querySelector('.popup__price')
-    const quantity =  event.target.closest('.popup__content-item').querySelector('.popup__number')
+    const quantity = event.target.closest('.popup__content-item').querySelector('.popup__number')
     let newQuantity = +quantity.innerHTML - +1;
 
     if (newQuantity === 0) {
@@ -134,9 +138,9 @@ function quantityMoreListener(quantityMoreBtn) {
   quantityMoreBtn.addEventListener('click', (event) => {
     const currentPrice = event.target.closest('.popup__content-item').getAttribute('data-price');
     const getPopupPrice = event.target.closest('.popup__content-item').querySelector('.popup__price')
-    const quantity =  event.target.closest('.popup__content-item').querySelector('.popup__number')
+    const quantity = event.target.closest('.popup__content-item').querySelector('.popup__number')
     let newQuantity = +quantity.innerHTML + +1;
-    quantity.innerHTML = newQuantity 
+    quantity.innerHTML = newQuantity
     getPopupPrice.innerHTML = getFormattedPrice(currentPrice * newQuantity)
   })
 }
@@ -176,5 +180,24 @@ function getCartItemTemplate(img, title, price) {
   </div>
   `
 }
+
+const iconCart = document.querySelector('.header__cart')
+const popupWithEmptyCart = document.querySelector('.popup-default')
+let addToCartFlag = false;
+
+
+
+  iconCart.addEventListener('click', (event) => {
+    if (addToCartFlag === false) {
+      toggleCart(popupWithEmptyCart)
+    } else {
+      toggleCart(popup)
+    }
+  })
+
+
+
+
+
 
 
