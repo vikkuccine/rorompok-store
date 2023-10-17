@@ -101,6 +101,7 @@ function addItemToCart(event) {
   const selectTitle = event.target.closest('.catalog-list__item').querySelector('.catalog-list__price-title').innerHTML
 
 
+
   const itemWrapper = document.querySelector('.popup__item-wraper')
   const newItem = document.createElement('div')
   newItem.innerHTML = getCartItemTemplate(selectImg, selectTitle, selectPrice)
@@ -109,6 +110,7 @@ function addItemToCart(event) {
   const quantityMoreBtn = newItem.querySelector('.popup__more-btn')
   quantityLessListener(quantityLessBtn)
   quantityMoreListener(quantityMoreBtn)
+  iconCart.classList.add('header__cart--chekout')
 }
 
 
@@ -122,7 +124,8 @@ function quantityLessListener(quantityLessBtn) {
     if (newQuantity === 0) {
       const confirmDeleteCart = confirm('Do you realy want to clear your cart?')
       if (confirmDeleteCart) {
-        popup.classList.toggle('popup__active');
+        toggleCart(popup)
+        iconCart.classList.remove('header__cart--chekout')
       }
 
     } else {
@@ -184,7 +187,6 @@ function getCartItemTemplate(img, title, price) {
 const iconCart = document.querySelector('.header__cart')
 const popupWithEmptyCart = document.querySelector('.popup-default')
 let addToCartFlag = false;
-
 
 
   iconCart.addEventListener('click', (event) => {
