@@ -481,6 +481,7 @@
 
     &__btn {
         padding: 8px 22px;
+        margin-left: 15px;
     }
 
     &__price-wrap {
@@ -637,11 +638,13 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        margin-bottom: 20px;
     }
 
     &__text-block {
         display: flex;
         align-items: center;
+        width: 370px;
     }
 
     &__photo {
@@ -660,28 +663,35 @@
 
     &__buttons {
         display: flex;
+        justify-content: space-around;
         border: 2px solid $primary;
         padding: 2px;
         border-radius: 8px;
         gap: 10px;
+        min-width: 70px;
     }
 
     &__less-btn {
+        padding: 0 0 0 5px;
         border: none;
         background-color: transparent;
         cursor: pointer;
+        
     }
 
     &__number {
     }
 
     &__more-btn {
+        padding: 0 5px 0 0;
         border: none;
         background-color: transparent;
         cursor: pointer;
     }
 
     &__price {
+        width: 100px;
+        text-align: end;
     }
 
     &__info {
