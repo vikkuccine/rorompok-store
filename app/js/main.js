@@ -106,6 +106,7 @@ class Cart {
         } else {
           this.toggleCart(this.popup)
           this.addItemToCart(event)
+
           this.addToCartFlag = true;
 
         }
@@ -142,26 +143,33 @@ class Cart {
     const selectImg = event.target.closest('.catalog-list__item').querySelector('.catalog-list__img').getAttribute('src')
     const selectTitle = event.target.closest('.catalog-list__item').querySelector('.catalog-list__price-title').innerHTML
     const selectDataId = event.target.closest('.catalog-list__item').getAttribute('data-id')
-    // const selectBtn = event.target.closest('.catalog-list__item').querySelector('.catalog-list__btn')
+
 
     const itemWrapper = document.querySelector('.popup__item-wraper')
     const newItem = document.createElement('div')
     newItem.innerHTML = this.getCartItemTemplate(selectImg, selectTitle, selectPrice, selectDataId)
     itemWrapper.append(newItem)
-    console.log(itemWrapper);
+
+    const deleteIcon = newItem.querySelector('.popup__icon-delete')
+
+    this.deleteItemListener(deleteIcon, newItem, selectDataId)
+    this.showDeleteIcon(newItem, deleteIcon)
+
     const quantityLessBtn = newItem.querySelector('.popup__less-btn')
     const quantityMoreBtn = newItem.querySelector('.popup__more-btn')
     this.quantityLessListener(quantityLessBtn)
     this.quantityMoreListener(quantityMoreBtn)
     this.iconCart.classList.add('header__cart--chekout')
     this.addItemToCartList(selectImg, selectTitle, selectPrice, selectDataId)
-    // selectBtn.in
   }
 
   getCartItemTemplate(img, title, price, id) {
     return `
     <div class="popup__content-item" data-price="${price}" data-id="${id}">
       <div class="popup__text-block">
+        <a class="popup__icon-delete">
+           <img class="popup__del-img" src="../images/delete.svg" alt="">
+        </a>
         <div class="popup__photo">
             <img class="popup__img" src="${img}" alt="">
         </div>
@@ -180,7 +188,6 @@ class Cart {
   quantityLessListener(quantityLessBtn) {
     quantityLessBtn.addEventListener('click', (event) => {
       this.changeQuantity(event, -1)
-
     })
   }
 
@@ -195,20 +202,20 @@ class Cart {
     const getPopupPrice = event.target.closest('.popup__content-item').querySelector('.popup__price')
     const quantity = event.target.closest('.popup__content-item').querySelector('.popup__number')
     const selectDataId = event.target.closest('.popup__content-item').getAttribute('data-id')
+    const currentItem = event.target.closest('.popup__content-item').parentElement
     let newQuantity = +quantity.innerHTML + step;
 
     if (newQuantity === 0) {
       const confirmDeleteCart = confirm('Do you realy want to clear your cart?')
       if (confirmDeleteCart) {
-        this.toggleCart(this.popup)
-        this.iconCart.classList.remove('header__cart--chekout')
+
+        this.deleteItem(currentItem,selectDataId)
       }
 
     } else {
       quantity.innerHTML = newQuantity
       const currentItem = this.cartList.find((item) => item.id === selectDataId);
       currentItem.quantity = newQuantity;
-      console.log(this.cartList);
       getPopupPrice.innerHTML = this.getFormattedPrice(currentPrice * newQuantity)
     }
 
@@ -228,6 +235,35 @@ class Cart {
     }
     return formattedPrice
   }
+
+  showDeleteIcon(item, deleteIcon) {
+    item.addEventListener('mouseover', (event) => {
+      deleteIcon.style.opacity = 1
+    })
+
+    item.addEventListener('mouseout', (event) => {
+      deleteIcon.style.opacity = 0
+    })
+  }
+
+
+
+
+  deleteItemListener(deleteIcon, item, id) {
+    deleteIcon.addEventListener('click', (event) => {
+      this.deleteItem(item, id)
+    })
+  }
+
+  deleteItem(item, id) {
+    item.remove()
+    this.cartList = this.cartList.filter((item) => item.id !== id)
+    if (this.cartList.length === 0) {
+      this.toggleCart(this.popup)
+      this.iconCart.classList.remove('header__cart--chekout')
+    }
+  }
+
 }
 
 

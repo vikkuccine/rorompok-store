@@ -647,6 +647,16 @@
         width: 370px;
     }
 
+    &__icon-delete {
+        opacity: 0;
+    }
+
+    &__del-img {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+
     &__photo {
         width: 200px;
         height: 200px;
@@ -676,7 +686,6 @@
         border: none;
         background-color: transparent;
         cursor: pointer;
-        
     }
 
     &__number {
