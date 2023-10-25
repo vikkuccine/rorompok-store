@@ -119,7 +119,7 @@ class Cart {
           this.addItemToCart(event)
           this.addToCartFlag = true;
           event.target.innerText = 'To cart'
-          this.countTotal()
+          this.updateCart()
         }
         console.log('ssss', this.store.cartList);
       })
@@ -191,9 +191,9 @@ class Cart {
         <div class="popup__title">${title}</div>
       </div>
       <div class="popup__buttons">
-        <button class="popup__less-btn">-</button>
+        <button type="button" class="popup__less-btn">-</button>
         <div class="popup__number">1</div>
-        <button class="popup__more-btn">+</button>
+        <button type="button" class="popup__more-btn">+</button>
       </div>
       <div class="popup__price">${this.getFormattedPrice(price)}</div>
     </div>
@@ -207,7 +207,17 @@ class Cart {
       sum = sum + (item.price * item.quantity)
       total.innerHTML = this.getFormattedPrice(sum)
     })
-    
+  }
+
+
+  setCartListToForm() {
+    const hiddenInput = document.querySelector('.popup__cart-list-data')
+    hiddenInput.value = JSON.stringify(this.store.cartList)
+  }
+
+  updateCart() {
+    this.countTotal()
+    this.setCartListToForm()
   }
 
   quantityLessListener(quantityLessBtn) {
@@ -242,7 +252,7 @@ class Cart {
       const currentItem = this.store.cartList.find((item) => item.id === selectDataId);
       currentItem.quantity = newQuantity;
       getPopupPrice.innerHTML = this.getFormattedPrice(currentPrice * newQuantity)
-      this.countTotal()
+      this.updateCart()
     }
 
   }
@@ -291,8 +301,27 @@ class Cart {
       this.iconCart.classList.remove('header__cart--chekout')
 
     }
-    this.countTotal()
+    this.updateCart()
   }
+}
+
+
+class BurgerMenu {
+  constructor() {
+    this.menuBtn = document.querySelector('.burger-menu');
+    this.menu = document.querySelector('.menu');
+    this.body = document.querySelector('body')
+    this.openBurgerMenu()
+  }
+
+  openBurgerMenu() {
+    this.menuBtn.addEventListener('click', () => {
+      this.menuBtn.classList.toggle('burger-menu--open');
+      this.menu.classList.toggle('menu--open');
+      this.body.classList.toggle('overflow-hidden');
+    })
+  }
+
 }
 
 
@@ -302,6 +331,8 @@ const tabs = new Tabs('.catalog-list');
 const microDots = new DotsToggle('.micro-card .dots__item', '.micro-card__img', '.micro-card');
 const catalogDots = new DotsToggle('.catalog-list .dots__item', '.catalog-list__img', '.catalog-list__item', store);
 const cart = new Cart(store)
+const burgerMenu = new BurgerMenu()
+
 
 
 

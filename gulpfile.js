@@ -10,7 +10,6 @@ const avif = require('gulp-avif');
 const webp = require('gulp-webp');
 const imagemin = require('gulp-imagemin');
 const newer = require('gulp-newer');
-const svgSprite = require('gulp-svg-sprite');
 const fonter = require('gulp-fonter');
 const ttf2woff2 = require('gulp-ttf2woff2');
 const include = require('gulp-include');
@@ -50,18 +49,7 @@ function images() {
     .pipe(dest('app/images'))
 }
 
-function sprite() {
-    return src('app/images/*.svg')
-    .pipe(svgSprite({
-        mode: {
-            stack: {
-                sprite: '../sprite.svg',
-                example: true
-            }
-        }
-    }))
-    .pipe(dest('app/images'))
-}
+
 
 function scripts() {
     return src([
@@ -105,10 +93,8 @@ function cleanDist() {
 function building() {
   return src([
     'app/css/style.min.css',
-    '!app/images/stack/sprite.stack.html',
     'app/images/*.*',
     '!app/images/*.svg',
-    'app/images/sprite.svg',
     'app/fonts/*.*',
     'app/js/main.min.js',
     'app/**/*.html'
@@ -121,7 +107,6 @@ exports.images = images;
 exports.scripts = scripts;
 exports.building = building;
 exports.watching = watching;
-exports.sprite = sprite;
 exports.fonts = fonts;
 exports.pages = pages;
 
