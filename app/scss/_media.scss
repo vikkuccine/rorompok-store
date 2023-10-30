@@ -3,7 +3,6 @@
         flex-direction: column;
         align-items: center;
         gap: 30px;
-
     }
 
     .item-card__photo {
@@ -18,13 +17,19 @@
     }
 }
 
-
 @media (max-width: 1046px) {
     .info-list {
         justify-content: center;
     }
-}
 
+    .catalog-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .catalog-list__digital-wrap {
+        max-width: 473px;
+    }
+}
 
 @media (max-width: 760px) {
     .menu,
@@ -128,7 +133,7 @@
         padding-bottom: 30px;
     }
 
-    .info{
+    .info {
         padding-top: 70px;
     }
 }
@@ -140,6 +145,16 @@
 
     .first-screen__title {
         font-size: 42px;
+    }
+}
+
+@media (max-width: 630px) {
+    .catalog-list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .catalog-list__digital-wrap {
+        max-width: 564px;
     }
 }
 
@@ -175,7 +190,7 @@
         right: -6%;
     }
 
-    .item-card__photo{
+    .item-card__photo {
         display: none;
     }
 
@@ -190,6 +205,44 @@
     .item-card__text-box {
         padding-bottom: 60px;
     }
+
+    .catalog__list {
+        gap: 20px;
+    }
+
+    .catalog {
+        .mixitup-control-active {
+            &:nth-child(1) {
+                ~ .catalog__dot {
+                    left: 19px;
+                }
+            }
+
+            &:nth-child(2) {
+                ~ .catalog__dot {
+                    left: 82px;
+                }
+            }
+
+            &:nth-child(3) {
+                ~ .catalog__dot {
+                    left: 155px;
+                }
+            }
+
+            &:nth-child(4) {
+                ~ .catalog__dot {
+                    left: 218px;
+                }
+            }
+
+            &:nth-child(5) {
+                ~ .catalog__dot {
+                    left: 278px;
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: 380px) {
@@ -203,10 +256,47 @@
     }
 }
 
-
 @media (max-width: 360px) {
     .first-screen::before {
         left: -130px;
         right: -130px;
+    }
+
+    .catalog__list {
+        gap: 10px;
+    }
+
+    .catalog {
+        .mixitup-control-active {
+            &:nth-child(1) {
+                ~ .catalog__dot {
+                    left: 19px;
+                }
+            }
+
+            &:nth-child(2) {
+                ~ .catalog__dot {
+                    left: 72px;
+                }
+            }
+
+            &:nth-child(3) {
+                ~ .catalog__dot {
+                    left: 135px;
+                }
+            }
+
+            &:nth-child(4) {
+                ~ .catalog__dot {
+                    left: 188px;
+                }
+            }
+
+            &:nth-child(5) {
+                ~ .catalog__dot {
+                    left: 238px;
+                }
+            }
+        }
     }
 }
