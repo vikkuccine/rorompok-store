@@ -1,6 +1,7 @@
 class Tabs {
   constructor(selector) {
     this.selector = selector;
+    this.catalogList = document.querySelector('.catalog-list')
     this.initTabs();
   }
 
@@ -9,6 +10,19 @@ class Tabs {
       var mixer = mixitup(this.selector, {
         load: {
           filter: '.meja'
+        },
+        callbacks: {
+          onMixEnd: (state) => {
+            var activeContainer = state.activeFilter.selector;
+console.log('ddd', this.catalogList);
+            this.catalogList.querySelectorAll('.catalog-list__tab').forEach(function (item) {
+              item.classList.remove('active-container');
+            });
+
+            this.catalogList.querySelectorAll(activeContainer).forEach(function (item) {
+              item.classList.add('active-container');
+            });
+          }
         }
       })
     }
@@ -321,9 +335,31 @@ class BurgerMenu {
       this.body.classList.toggle('overflow-hidden');
     })
   }
-
 }
 
+class MenuBtn {
+  constructor() {
+    this.catalogList = document.querySelector('.catalog-list')
+    this.catalogBtn = document.querySelector('.catalog__btn')
+    this.toggleBtn()
+  }
+
+  toggleBtn() {
+    this.catalogBtn.addEventListener('click', () => {
+      this.catalogBtn.innerHTML = this.catalogList.classList.contains('expanded') ? 'View More' : 'View Less';
+
+      if (this.catalogList.classList.contains('expanded')) {
+        this.catalogList.style.maxHeight = '840px';
+        this.catalogList.classList.remove('expanded');
+        document.querySelectorAll('.active-container .catalog-list__item')[2].scrollIntoView({ behavior: "smooth" })
+
+      } else {
+        this.catalogList.style.maxHeight = '3000px';
+        this.catalogList.classList.add('expanded');
+      }
+    })
+  }
+}
 
 const store = { cartList: [] }
 
@@ -332,6 +368,7 @@ const microDots = new DotsToggle('.micro-card .dots__item', '.micro-card__img', 
 const catalogDots = new DotsToggle('.catalog-list .dots__item', '.catalog-list__img', '.catalog-list__item', store);
 const cart = new Cart(store)
 const burgerMenu = new BurgerMenu()
+const menuBtn = new MenuBtn();
 
 
 

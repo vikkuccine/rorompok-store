@@ -185,7 +185,6 @@
         height: 48px;
         flex: 0 0 auto;
         border-radius: 50%;
-
     }
 
     &__img {
@@ -429,10 +428,16 @@
 }
 
 .catalog-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 40px;
-    row-gap: 60px;
+    overflow: hidden;
+    transition: max-height 0.7s ease-in-out;
+    
+    &__tab {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 40px;
+        row-gap: 60px;
+        
+    }
 
     &__item {
     }

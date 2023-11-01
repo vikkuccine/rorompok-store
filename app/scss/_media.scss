@@ -15,6 +15,17 @@
         left: -200px;
         right: -200px;
     }
+
+    .baner__photo {
+        margin-left: 0;
+    }
+}
+
+
+@media (max-width: 1240px) {
+    .baner__photo {
+        display: none;
+    }
 }
 
 @media (max-width: 1046px) {
@@ -22,7 +33,7 @@
         justify-content: center;
     }
 
-    .catalog-list {
+    .catalog-list__tab {
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -150,7 +161,14 @@
 
 @media (max-width: 630px) {
     .catalog-list {
+        max-height: 840px;
+    }
+    .catalog-list__tab {
         grid-template-columns: repeat(1, 1fr);
+    }
+
+    .catalog__btn {
+        display: block;
     }
 
     .catalog-list__digital-wrap {
@@ -178,6 +196,10 @@
     .first-screen__search {
         padding: 20px 128px 20px 24px;
     }
+
+    .footer__body {
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 486px) {
@@ -196,6 +218,10 @@
 
     .title {
         font-size: 28px;
+    }
+
+    .baner__title {
+        font-size: 26px;
     }
 
     .item-card__title {
