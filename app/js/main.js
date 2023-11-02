@@ -94,7 +94,6 @@ class Cart {
     this.body = document.querySelector('body')
     this.iconCart = document.querySelectorAll('.header__cart')
     this.popupWithEmptyCart = document.querySelector('.popup-default')
-    this.addToCartFlag = false;
     this.store = store;
     this.initEventListener()
   }
@@ -131,7 +130,6 @@ class Cart {
         } else {
           this.toggleCart(this.popup)
           this.addItemToCart(event)
-          this.addToCartFlag = true;
           event.target.innerText = 'To cart'
           this.updateCart()
         }
@@ -145,7 +143,7 @@ class Cart {
   onClickIconCart() {
     this.iconCart.forEach((icon) => {
       icon.addEventListener('click', (event) => {
-        if (this.addToCartFlag === false) {
+        if (this.store.cartList.length === 0) {
           this.toggleCart(this.popupWithEmptyCart)
         } else {
           this.toggleCart(this.popup)
@@ -302,8 +300,6 @@ class Cart {
   }
 
 
-
-
   deleteItemListener(deleteIcon, item, id) {
     deleteIcon.addEventListener('click', (event) => {
       this.deleteItem(item, id)
@@ -320,6 +316,7 @@ class Cart {
       this.iconCart.forEach((icon) => {
         icon.classList.remove('header__cart--chekout')
       })
+      
     }
     this.updateCart()
   }
