@@ -1,5 +1,22 @@
 
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'phpmailer/src/Exception.php';
+require 'phpmailer/src/PHPMailer.php';
+
+$mail = new PHPMailer(true);
+$mail->CharSet = 'UTF-8';
+$mail->setLanguage('ua', 'phpmailer/language/');
+$mail->isHTML(true);
+
+$mail->setFrom('vika@vikkuccine.saenq.space', 'Форма відправлена' );
+$mail->addAddress('kamenkova09@gmail.com');
+$mail->Subject = 'Перша відправка форми';
+
+
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email= $_POST["email"];
@@ -7,24 +24,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cart_list_data = $_POST["cart-list-data"];
     $cart_list = json_decode($cart_list_data, true);
     
-    $headers = "From: ";
+    $body = '<h1>Замовлення оформлено</h1><p>'.$name.'</p><p>'.$email.'</p>';
 
-    
+
     if (is_array($cart_list)) {
         foreach ($cart_list as $item) {
-            echo "ID: " . $item["id"] . "<br>";
-            echo "Назва: " . $item["title"] . "<br>";
-            echo "Ціна: " . $item["price"] . "<br>";
-            echo "Кількість: " . $item["quantity"] . "<br>";
-            echo "Ф: " . $item["img"] . "<br>";
-            echo "<br>";
+            $body.= '<p>ID: '.$item["id"].'</p>';
+            $body.= '<p>Назва: '.$item["title"].'</p>';
+            $body.= '<p>Ціна: '.$item["price"].'</p>';
+            $body.= '<p>Кількість: '.$item["quantity"].'</p>';
+            $body.= '<p>Ф: '.$item["img"].'</p>';
         }
-    } else {
+    } 
+    else {
         echo "Помилка розкодування JSON.";
     }
-
-
-
-
-
 }
+
+$mail->Body = $body;
+
+if(!$mail->send()) {
+    $message = 'Помилка!';
+} else {
+    $message = 'Замовлення оформлено';
+}
+
+$response = ['message' => $message];
+
+header('Content-type: application/json');
+echo json_encode($response);
