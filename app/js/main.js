@@ -94,6 +94,8 @@ class Cart {
     this.body = document.querySelector('body')
     this.iconCart = document.querySelectorAll('.header__cart')
     this.popupWithEmptyCart = document.querySelector('.popup-default')
+    this.popupOkBtn = document.querySelectorAll('.popup__ok')
+    this.popupSubmit = document.querySelector('.popup__submit')
     this.store = store;
     this.initEventListener()
   }
@@ -110,6 +112,7 @@ class Cart {
     this.onClickIconCart()
   }
 
+
   hideCard() {
     this.hideCartBtn.forEach((close) => {
       close.addEventListener('click', (event) => {
@@ -117,6 +120,16 @@ class Cart {
         this.toggleCart(currentPopup)
       })
     })
+    this.popupOkBtn.forEach((btn) => {
+      btn.addEventListener('click', (event) => {
+        const currentPopup = event.target.closest('.popup')
+        this.toggleCart(currentPopup)
+      })
+    })
+    this.popupSubmit.addEventListener('submit', (event) => {
+      const currentPopup = event.target.closest('.popup')
+      this.toggleCart(currentPopup)
+    } )
   }
 
 
@@ -133,7 +146,6 @@ class Cart {
           event.target.innerText = 'To cart'
           this.updateCart()
         }
-        console.log('ssss', this.store.cartList);
       })
 
     })
@@ -191,7 +203,7 @@ class Cart {
     this.iconCart.forEach((item) => {
       item.classList.add('header__cart--chekout')
     })
-    
+
     this.addItemToCartList(selectImg, selectTitle, selectPrice, selectDataId)
   }
 
@@ -200,7 +212,7 @@ class Cart {
     <div class="popup__content-item" data-price="${price}" data-id="${id}">
       <div class="popup__text-block">
         <a class="popup__icon-delete">
-           <img class="popup__del-img" src="../images/delete.svg" alt="">
+           <img class="popup__del-img" src="./images/delete.svg" alt="">
         </a>
         <div class="popup__photo">
             <img class="popup__img" src="${img}" alt="">
@@ -316,7 +328,7 @@ class Cart {
       this.iconCart.forEach((icon) => {
         icon.classList.remove('header__cart--chekout')
       })
-      
+
     }
     this.updateCart()
   }
@@ -364,14 +376,37 @@ class MenuBtn {
   }
 }
 
+class URLParamsHandler {
+  constructor() {
+    this.queryString = window.location.search;
+    this.urlParams = new URLSearchParams(this.queryString)
+    this.popupSuccess = document.querySelector('.popup-success')
+    this.body = document.querySelector('body')
+    this.handleMailSuccess()
+  }
+
+  togglePopup(currentPopup) {
+    currentPopup.classList.toggle('popup__active')
+    this.body.classList.toggle('overflow-hidden')
+  }
+
+  handleMailSuccess() {
+    if (this.urlParams.get('mailSuccess')) {
+      this.togglePopup(this.popupSuccess)
+      history.replaceState({}, document.title, window.location.pathname);
+    }
+  }
+}
+
 const store = { cartList: [] }
 
 const tabs = new Tabs('.catalog-list');
 const microDots = new DotsToggle('.micro-card .dots__item', '.micro-card__img', '.micro-card');
 const catalogDots = new DotsToggle('.catalog-list .dots__item', '.catalog-list__img', '.catalog-list__item', store);
-const cart = new Cart(store)
-const burgerMenu = new BurgerMenu()
+const cart = new Cart(store);
+const burgerMenu = new BurgerMenu();
 const menuBtn = new MenuBtn();
+const urlParamsHandler = new URLParamsHandler();
 
 
 

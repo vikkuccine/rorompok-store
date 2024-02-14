@@ -11,11 +11,9 @@ $mail->CharSet = 'UTF-8';
 $mail->setLanguage('ua', 'phpmailer/language/');
 $mail->isHTML(true);
 
-$mail->setFrom('vika@vikkuccine.saenq.space', 'Форма відправлена' );
+$mail->setFrom('vika@saenq.space', 'Форма відправлена' );
 $mail->addAddress('kamenkova09@gmail.com');
 $mail->Subject = 'Перша відправка форми';
-
-
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -25,7 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cart_list = json_decode($cart_list_data, true);
     
     $body = '<h1>Замовлення оформлено</h1><p>'.$name.'</p><p>'.$email.'</p>';
-
 
     if (is_array($cart_list)) {
         foreach ($cart_list as $item) {
@@ -46,10 +43,12 @@ $mail->Body = $body;
 if(!$mail->send()) {
     $message = 'Помилка!';
 } else {
-    $message = 'Замовлення оформлено';
+   header('Location: index.html?mailSuccess=true');
+   exit();
 }
 
-$response = ['message' => $message];
-
 header('Content-type: application/json');
-echo json_encode($response);
+echo ($message);
+
+
+

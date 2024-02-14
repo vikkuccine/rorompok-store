@@ -34,7 +34,7 @@ function fonts() {
 }
 
 function images() {
-    return src(['app/images/src/*.*', '!app/images/src/*.svg'])
+    return src(['app/images/src/*.*'])
     .pipe(newer('app/images'))
     .pipe(avif({guality: 50}))
 
@@ -45,11 +45,8 @@ function images() {
     .pipe(src('app/images/src/*.*'))
     .pipe(newer('app/images'))
     .pipe(imagemin())
-
     .pipe(dest('app/images'))
 }
-
-
 
 function scripts() {
     return src([
@@ -94,7 +91,6 @@ function building() {
   return src([
     'app/css/style.min.css',
     'app/images/*.*',
-    '!app/images/*.svg',
     'app/fonts/*.*',
     'app/js/main.min.js',
     'app/**/*.html'

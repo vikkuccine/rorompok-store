@@ -4,6 +4,7 @@
     background: rgb(4, 4, 2);
     background: linear-gradient(90deg, rgba(4, 4, 2, 1) 0%, rgba(109, 115, 115, 1) 100%);
     position: relative;
+    overflow-x: hidden;
 
     &::before {
         content: "";
@@ -585,6 +586,12 @@
     }
 }
 
+.popup-success {
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
 .popup {
     display: none;
     position: fixed;
@@ -739,17 +746,14 @@
         margin-left: auto;
     }
 
-    &__submit {
+    &__submit,
+    &__ok {
         align-self: flex-end;
         margin-top: 15px;
     }
 }
 
-.popup-success {
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
+
 
 .popup-default {
     justify-content: center;

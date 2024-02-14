@@ -848,13 +848,13 @@
                 </div>
                 <div class="popup__info">
                     <div class="popup__info-wrap">
-                        <input class="popup__name" name="name" type="text" placeholder="name">
-                        <input class="popup__email" name="email" type="email" placeholder="email">
+                        <input class="popup__name" name="name" required type="text" placeholder="name">
+                        <input class="popup__email" name="email" required type="email" placeholder="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                     </div>
                     <div class="popup__total">Total: <span class="popup__total-text"></span></div>
                     <input class="popup__cart-list-data" name="cart-list-data" type="hidden">
                 </div>
-                <button class="popup__submit btn" type="submit">Submit</button>
+                <button class="popup__submit popup__submit--success btn" type="submit">Submit</button>
             </form>
         </div>
     </div>
@@ -867,7 +867,7 @@
                     <div class="popup__second-line"></div>
                 </a>
                 <h3 class="popup-success__message">Thank you for your order! Message has been sent to your email.</h3>
-                <button class="popup__submit btn">Ok</button>
+                <button class="popup__ok btn">Ok</button>
             </div>
         </div>
     </div>
@@ -883,7 +883,7 @@
                 <div class="popup-default__cart-img">
                     <img src="./images/empty-cart.svg" alt="">
                 </div>
-                <button class="popup__submit btn">Ok</button>
+                <button class="popup__ok btn">Ok</button>
             </div>
         </div>
     </div>
