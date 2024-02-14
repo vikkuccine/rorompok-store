@@ -1,4 +1,4 @@
-HTML Template "Disign Studio"
+HTML Template "Rorompok store"
 
 Tehnologis which was used to do this project:
 - HTML
