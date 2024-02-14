@@ -48,14 +48,11 @@ class DotsToggle {
         this.changeId(eventTarget)
         let currentBtn = event.target.closest('.catalog-list__item').querySelector('.catalog-list__btn')
         const findId = event.target.closest('.catalog-list__item').getAttribute('data-id')
-        console.log('ffff', this.store);
         if (this.store.cartList.some((item) => item.id === findId)) {
           currentBtn.innerText = 'To cart'
         } else {
           currentBtn.innerText = 'Buy'
         }
-
-        console.log('ccc', this.store.cartList);
       })
     })
   }
@@ -67,10 +64,10 @@ class DotsToggle {
   }
 
   changeImg(eventTarget) {
-    const currentImg = eventTarget.closest(this.imgContainer).querySelector(this.img);
+    const currentImg = eventTarget.closest(this.imgContainer).querySelector(this.img)
     const currentMicroPhoto = currentImg.getAttribute('src')
 
-    const newPhoto = eventTarget.dataset.img;
+    const newPhoto = eventTarget.dataset.img
     if (currentMicroPhoto !== newPhoto) {
       currentImg.setAttribute('src', newPhoto)
     }
@@ -346,6 +343,7 @@ class BurgerMenu {
   openBurgerMenu() {
     this.menuBtn.addEventListener('click', () => {
       this.menuBtn.classList.toggle('burger-menu--open');
+
       this.menu.classList.toggle('menu--open');
       this.body.classList.toggle('overflow-hidden');
     })

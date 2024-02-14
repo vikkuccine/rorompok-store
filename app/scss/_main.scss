@@ -149,6 +149,10 @@
         font-size: 18px;
         font-weight: 500;
         cursor: pointer;
+
+        &:hover {
+            color: $accent;
+        }
     }
 }
 
@@ -541,6 +545,7 @@
 
     &__info {
         align-self: center;
+        overflow: hidden;
     }
 
     &__title {
