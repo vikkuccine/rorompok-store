@@ -11,8 +11,8 @@ Libraries:
 - Mixitup.js
 - PHPMailer
 
-[**Demo**](https://vikkuccine.saenq.space/rorompok-store/)
+[**Demo**](https://vikario.space/rorompok-store/)
 
 <p align='center'>
-    <img src='https://vikkuccine.saenq.space/rorompok-store/preview.jpg' width='100%'>
+    <img src='https://vikario.space/rorompok-store/preview.jpg' width='100%'>
 </p>
